@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pkmn Palette RNG</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./icon.ico" type="image/x-icon">
+</head>
+
+<body style="margin: auto; height: 100vh;">
+  <main>
+    <h1 class="centered">Pkmn Palette RNG</h1>
+    <div class="centered" id="introduction">
+      <p>Get a random pokemon and then give it a random new palette!</p>
+      <p>Up to Gen 7 only. <b>Changing colours don't work on Firefox.</b></p>
+    </div>
+    <div id="btn-group">
+      <button class="btn" id="pkmn-btn" type="button">Get a Pokémon!</button>
+      <button class="btn" id="colour-btn" type="button">Change its colours</button>
+    </div>
+    <div id="pkmn-img-bg" class="centeredY">
+      <canvas id="pkmn-img" width="40" height="30" class="centeredY"></canvas>
+    </div>
+  </main>
+
+  <footer class="centered">
+    <p>All design <a href="https://www.pokemon.com/" target="_blank">©2025 Pokémon. 1995 - 2025</a>. Images from <a href="https://msikma.github.io/pokesprite/index.html" target="_blank">PokéSprite</a>.</p>
+    <p>Anything else is under the MIT License made by Catoblepon and hosted in Github.</p>
+  </footer>
+
+  <script type="module" src="color.js"></script>
+  <script type="module" src="index.js"></script>
+</body>
+
+</html>
