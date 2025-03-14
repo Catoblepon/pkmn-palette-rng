@@ -49,10 +49,11 @@ h1 {
 }
 
 #btn-group {
-    padding-bottom: var(--space);
+    padding: var(--space);
     display: flex;
     column-gap: 30px;
     justify-content: center;
+    padding-top: var(--nothing);
 }
 
 .btn {
@@ -82,10 +83,11 @@ h1 {
     display: block;
     width: var(--sizeX);
     height: var(--sizeX);
+    margin: var(--space) auto;
     image-rendering: pixelated;
     background-color: var(--white);
     border-radius: var(--radius);
-    position: absolute;
+    position: relative;
     canvas {
         display: block;
         width: var(--sizeX);
@@ -95,7 +97,7 @@ h1 {
 
 footer {
     background-color: var(--white);
-    position: absolute;
+    position: sticky;
     bottom: var(--nothing);
     width: 100%;
     padding: var(--space) var(--nothing);
@@ -106,6 +108,7 @@ footer {
 p {
     margin: 0 var(--space);
     font-family: 'Trebuchet MS', Arial;
+    font-size: 12px;
 }
 
 .centered {
