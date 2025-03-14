@@ -12,10 +12,6 @@ It started because I wanted to draw pokémon but wanted random colours for them,
 
 Spoilers: it didn't take me only one weekend. But I did learn a bunch in the end and I'm happy with it!
 
-# Software restrictions
-
-Unfortunately, the colour changing doesn't work on Firefox, as the function to get the data of the colours of the image isn't available in Firefox (anything else *should* be fine).
-
 # The code and it's future
 I, Catoblepon, made this website, using the [Color.js](https://github.com/luukdv/color.js) package made by [Luukdv](https://github.com/luukdv). I consider it finished and don't expect to change or expand it (unless there's some big bug that need addressing or Firefox implements a way to make it work).
 

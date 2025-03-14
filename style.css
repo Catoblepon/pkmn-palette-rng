@@ -31,7 +31,10 @@
 }
 
 body {
+    height: 100vh;
     background-color: var(--grey);
+    display: flex;
+    flex-direction: column;
 }
 
 h1 {
@@ -41,6 +44,27 @@ h1 {
     font-family: 'Tomorrow', 'Trebuchet MS', Arial;
     font-size: 48px;
     text-transform: uppercase;
+}
+
+main {
+    flex-grow: 1;
+}
+
+footer {
+    background-color: var(--white);
+    position: sticky;
+    top: auto;
+    bottom: 0vh;
+    width: 100%;
+    padding: var(--space) var(--nothing);
+    a { color: var(--redA); }
+    font-family: 'Trebuchet MS', Arial;
+}
+
+p {
+    margin: 0 var(--space);
+    font-family: 'Trebuchet MS', Arial;
+    font-size: 12px;
 }
 
 #introduction {
@@ -93,22 +117,6 @@ h1 {
         width: var(--sizeX);
         height: var(--sizeY);
     }
-}
-
-footer {
-    background-color: var(--white);
-    position: sticky;
-    bottom: var(--nothing);
-    width: 100%;
-    padding: var(--space) var(--nothing);
-    a { color: var(--redA); }
-    font-family: 'Trebuchet MS', Arial;
-}
-
-p {
-    margin: 0 var(--space);
-    font-family: 'Trebuchet MS', Arial;
-    font-size: 12px;
 }
 
 .centered {
