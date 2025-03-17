@@ -57,8 +57,13 @@ footer {
     bottom: 0vh;
     width: 100%;
     padding: var(--space) var(--nothing);
-    a { color: var(--redA); }
-    font-family: 'Trebuchet MS', Arial;
+
+    a {
+        color: var(--redA);
+    }
+
+    font-family: 'Trebuchet MS',
+    Arial;
 }
 
 p {
@@ -69,7 +74,10 @@ p {
 
 #introduction {
     padding: var(--space) var(--nothing);
-    p { color: var(--white); }
+
+    p {
+        color: var(--white);
+    }
 }
 
 #btn-group {
@@ -89,11 +97,11 @@ p {
     text-transform: uppercase;
     font-family: 'Pixel', 'Trebuchet MS', Arial;
     font-size: 24px;
-    -webkit-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.75);
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;    
+    -webkit-text-stroke-color: black;
 }
 
 .btn:hover {
@@ -101,6 +109,39 @@ p {
     -webkit-box-shadow: 0px 0px 3px 3px var(--red);
     -moz-box-shadow: 0px 0px 3px 3px var(--red);
     box-shadow: 0px 0px 3px 3px var(--red);
+}
+
+#pkmn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .col-left {
+        min-width: var(--sizeX);
+        width: var(--sizeX);
+        text-align: center;
+    }
+
+    .col-right {
+        min-width: 100px;
+        width: fit-content;
+        vertical-align: middle;
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+
+        p {
+            -webkit-text-stroke-width: 0px;
+        }
+    }
+
+    p {
+        font-family: 'Pixel', 'Trebuchet MS', Arial;
+        font-size: 32px;
+        color: var(--white);
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: black;
+        min-height: 32px;
+    }
 }
 
 #pkmn-img-bg {
@@ -112,6 +153,7 @@ p {
     background-color: var(--white);
     border-radius: var(--radius);
     position: relative;
+
     canvas {
         display: block;
         width: var(--sizeX);

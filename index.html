@@ -7,6 +7,11 @@
   <title>Pkmn Palette RNG</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="icon" href="./icon.ico" type="image/x-icon">
+  <meta name="title" property="og:title" content="Pkmn Palette RNG">
+  <meta name="type" property="og:type" content="website">
+  <meta name="image" property="og:image" content="./banner.png">
+  <meta name="url" property="og:url" content="http://pkmn-rng.catoblepon.com/">
+  <meta name="description" property="og:description" content="Get a random pokémon and give it a new random palette.">
 </head>
 
 <body style="margin: auto; height: 100vh;">
@@ -20,8 +25,15 @@
       <button class="btn" id="pkmn-btn" type="button">Get a Pokémon!</button>
       <button class="btn" id="colour-btn" type="button">Change its colours</button>
     </div>
-    <div id="pkmn-img-bg" class="centered">
-      <canvas id="pkmn-img" width="40" height="30" class="centeredY"></canvas>
+    <div id="pkmn">
+      <div class="col-left">
+        <p id="name-en">Pokémon</p>
+        <div id="pkmn-img-bg" class="centered">
+          <canvas id="pkmn-img" width="40" height="30" class="centeredY"></canvas>
+        </div>  
+        <p id="typing"></p>
+     </div>
+      <div class="col-right"><p id="name-jp">ポケモン</p></div>
     </div>
   </main>
 
@@ -31,7 +43,7 @@
   </footer>
 
   <script type="module" src="color.js"></script>
-  <script type="module" src="index.js"></script>
+  <script type="module" src="index.js" charset="UTF-8"></script>
 </body>
 
 </html>

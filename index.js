@@ -1,4 +1,5 @@
 import { prominent } from "./color.js";
+import pkmn_data from './pokemon-info.json' with { type: 'json' };
 
 let c = document.getElementById('pkmn-img');
 let ctx = c.getContext('2d', { willReadFrequently: true });
@@ -20,15 +21,24 @@ function createImage() {
     };
 }
 
+function getNames(id) {
+    document.getElementById("name-en").innerHTML = pkmn_data[id].name.en;
+    document.getElementById("name-jp").innerHTML = pkmn_data[id].name.jp;
+    if(pkmn_data[id].type) document.getElementById("typing").innerHTML = "( " + pkmn_data[id].type + " )";
+    else document.getElementById("typing").innerHTML = "";
+}
+
 function checkIfSimilar(info, SecondaryColor, i, j) {
     return Math.abs(info[i]-SecondaryColor[j][0]) +
            Math.abs(info[i+1]-SecondaryColor[j][1]) +
-           Math.abs(info[i+2]-SecondaryColor[j][2]) < 50;
+           Math.abs(info[i+2]-SecondaryColor[j][2]) < 16;
 }
 
 document.getElementById("pkmn-btn").addEventListener("click", async function () {
-    img_src = './pokemon/' + randomNumber(1076) + '.png';
+    let id = randomNumber(Object.keys(pkmn_data).length);
+    img_src = './pokemon/' + id + '.png';
     createImage();
+    getNames(id);
     primary_colours = await prominent(img_src, { amount: 16 });
 });
 
@@ -39,8 +49,12 @@ document.getElementById("colour-btn").addEventListener("click", async function (
     ]);
 
     for (let i = 0; i < img_data.data.length; i += 4) {
-        
-        if (img_data[i + 3] == 0) {
+
+        if (img_data.data[i] == 32 && img_data.data[i+1] == 32 && img_data.data[i+2] == 32) {
+            continue;
+        }
+
+        if (img_data.data[i+3] == 0) {
             continue;
         }
 
