@@ -20,7 +20,16 @@ The program is under the MIT License. Pokémon designs is propriety of [©2025 P
 
 # Change Log
 
-### Version 1.1 (Latest)
+### Version 1.11 (Latest)
+(19/3/2025)
+
+- Fixed buttons in firefox not working.
+- Added a couple QoL: disabled button, loading animation, etc.
+- Undid the changes that reduced possibility of colour merging (didn't work as intented).
+- Changed the way image is displayed so colours can't be merged (hopefully).
+
+### Version 1.1
+(17/3/2025)
 
 - Added the name of the Pokémon (English + Japanese).
 - Added (at the bottom, if applicable) the variation type of the Pokémon (like Megas, Shapes, Colours, etc).
@@ -29,14 +38,17 @@ The program is under the MIT License. Pokémon designs is propriety of [©2025 P
 - Added a link preview to the website.
 
 ### Version 1.02
+(14/3/2025)
 
 - Removed the claims that said Firefox wasn't working (it IS working)
 - Fixed footer not sticking to the bottom.
 
 ### Version 1.01
+(14/3/2025)
 
 - Fixed some hosting errors.
 
 ### Version 1
+(14/3/2025)
 
 - Initial website is published.

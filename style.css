@@ -111,6 +111,11 @@ p {
     box-shadow: 0px 0px 3px 3px var(--red);
 }
 
+.btn:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
 #pkmn {
     display: flex;
     justify-content: center;
@@ -144,10 +149,28 @@ p {
     }
 }
 
+@media screen and (max-width:475px) {
+    #pkmn {
+        flex-direction: column;
+        .col-right {
+            order: 1;
+            p { writing-mode: horizontal-tb; }
+        }
+        .col-left {
+            order: 2;
+            display: flex;
+            flex-direction: column;
+            #name-en { order: 1; }
+            #typing { order: 2; min-height: 0;}
+            #pkmn-img-bg { order: 3; }
+        }
+    }
+}
+
 #pkmn-img-bg {
     display: block;
-    width: var(--sizeX);
-    height: var(--sizeX);
+    width: calc(var(--sizeX) + 20px);
+    height: calc(var(--sizeX) + 20px);
     margin: var(--space) auto;
     image-rendering: pixelated;
     background-color: var(--white);
@@ -159,6 +182,36 @@ p {
         width: var(--sizeX);
         height: var(--sizeY);
     }
+}
+
+@keyframes capturing {
+    0%,
+    100% {
+        transform: translateX(0%);
+        transform-origin: 50% 50%;
+    }
+    15% {
+        transform: translateX(-30px) rotate(-6deg);
+    }
+    30% {
+        transform: translateX(15px) rotate(6deg);
+    }
+    45% {
+        transform: translateX(-15px) rotate(-3.6deg);
+    }
+    60% {
+        transform: translateX(9px) rotate(2.4deg);
+    }
+    75% {
+        transform: translateX(-6px) rotate(-1.2deg);
+    }
+}
+
+#loader img {
+    width: 120px;
+    height: 120px;
+    image-rendering: pixelated;
+    animation: capturing 1s infinite both;
 }
 
 .centered {
