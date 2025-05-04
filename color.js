@@ -1,7 +1,7 @@
 //https://github.com/luukdv/color.js/blob/master/src/color.ts
 //By luukdv
 //Modified by Catoblepon
-//Edits: make it JS, took out average function (only needed prominent)
+//Edits: make it JS, took out average function (only needed prominent); changed "new gap = 4 * args.sample" to "new gap = 4"
 
 const getSrc = (item) => 
     typeof item === 'string' ? item : item.src;
@@ -54,7 +54,7 @@ const getImageData = (src) =>
     });
 
 const getProminent = (data, args) => {
-    const gap = 4 * args.sample;
+    const gap = 4;
     const colors = {};
 
     for (let i = 0; i < data.length; i += gap) {

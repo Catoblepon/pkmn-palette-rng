@@ -2,6 +2,7 @@
     --red: #F04037;
     --redA: #85100A;
     --grey: #424242;
+    --greyA: #2e2e2e;
     --white: #FFFFFF;
 
     --space: 20px;
@@ -80,12 +81,47 @@ p {
     }
 }
 
-#btn-group {
-    padding: var(--space);
+.btn-group,
+#btn-group-search {
+    padding: var(--nothing) var(--nothing) var(--space) var(--nothing);
     display: flex;
     column-gap: 30px;
     justify-content: center;
-    padding-top: var(--nothing);
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+#pkmn-name {
+    padding: var(--nothing);
+    width: 250px;
+}
+
+#pkmn-list {
+    display: flex;
+    flex-direction: column;
+    min-height: 30px;
+    max-height: 300px;
+    overflow-y: scroll;
+    z-index: 1000;
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    background: var(--grey) !important;
+    border: 4px solid var(--red);
+    color: var(--white);
+    min-width: 0px;
+    div {
+        padding: calc(var(--space)/2) var(--space);
+    }
+    scrollbar-color: var(--red) var(--grey);
+    scrollbar-width: thin;
+}
+
+#pkmn-list div:hover {
+    background-color: var(--greyA);
+    cursor: pointer;
 }
 
 .btn {

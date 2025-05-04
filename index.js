@@ -8,15 +8,21 @@ let img_data;
 let data;
 let primary_colours;
 let pkmn_data;
+let id;
 
 document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("loader").style.display = "none";
     document.getElementById("pkmn-btn").disabled = true;
+    document.getElementById("pick-btn").disabled = true;
+    document.getElementById("origin-btn").disabled = true;
     document.getElementById("colour-btn").disabled = true;
+    document.getElementById("btn-group-search").hidden = true;
+    document.getElementById("btn-group-search").style.display = "none";
     try {
         const response = await fetch("./pokemon-info.json");
         pkmn_data = await response.json().then(data => {
             document.getElementById("pkmn-btn").disabled = false;
+            document.getElementById("pick-btn").disabled = false;
             return data;
     });
     } catch (error) {
@@ -39,7 +45,7 @@ function createImage() {
             document.getElementById("loader").style.display = "none";
             ctx.drawImage(image, 0, 0, 40, 30);
             document.getElementById("colour-btn").disabled = false;
-            document.getElementById("pkmn-btn").disabled = false;
+            document.getElementById("origin-btn").disabled = false;
         }, 450);
     };
 }
@@ -57,13 +63,24 @@ function checkIfSimilar(info, SecondaryColor, i, j) {
            Math.abs(info[i+2]-SecondaryColor[j][2]) < 50;
 }
 
-document.getElementById("pkmn-btn").addEventListener("click", async function () {
-    let id = randomNumber(Object.keys(pkmn_data).length);
+async function gettingPokemon() {
     img_src = './pokemon/' + id + '.png';
     createImage();
     getNames(id);
     primary_colours = await prominent(img_src, { amount: 16 });
+    document.getElementById("pkmn-btn").disabled = false;
+    document.getElementById("btn-group-search").hidden = true;
+    document.getElementById("btn-group-search").style.display = "none";
+}
+
+document.getElementById("pkmn-btn").addEventListener("click", function () {
+    id = randomNumber(Object.keys(pkmn_data).length);
+    gettingPokemon();
 });
+
+document.getElementById("origin-btn").addEventListener("click", function () {
+    gettingPokemon();
+})
 
 document.getElementById("colour-btn").addEventListener("click", async function () {
     ctx.drawImage(image, 0, 0, 40, 30);
@@ -94,4 +111,63 @@ document.getElementById("colour-btn").addEventListener("click", async function (
 
     }
     ctx.putImageData(img_data, 0, 0);
+});
+
+document.getElementById("pick-btn").addEventListener("click", function () {
+    const btnGroup = document.getElementById("btn-group-search");
+    document.getElementById("pkmn-list").style.overflowY = "hidden";
+    document.getElementById("pkmn-list").style.border = "none";
+    if (btnGroup.style.display === "none" || btnGroup.hidden) {
+        btnGroup.hidden = false;
+        btnGroup.style.display = "flex";
+    } else {
+        btnGroup.hidden = true;
+        btnGroup.style.display = "none";
+    }
+
+    const list = document.getElementById("pkmn-list");
+    const input = document.getElementById("pkmn-name");
+    input.addEventListener("input", () => {
+        let autocomplete = Object.values(pkmn_data).map(entry => entry.name.en);
+
+        const query = input.value.toLowerCase();
+        list.innerHTML = "";
+
+        if (query.length === 0) return;
+
+        if (document.getElementById("pkmn-list").children.length === 0) {
+            document.getElementById("pkmn-list").style.overflowY = "scroll";
+            document.getElementById("pkmn-list").style.border = "4px solid var(--red)";
+        }
+
+        const filtered = autocomplete.filter(pkmn => pkmn.toLowerCase().startsWith(query));
+
+        filtered.forEach(pkmn => {
+            const item = document.createElement("div");
+            item.textContent = pkmn;
+            item.addEventListener("click", () => {
+                document.getElementById("pkmn-name").value = pkmn;
+                list.innerHTML = "";
+                document.getElementById("pkmn-list").style.overflowY = "hidden";
+                document.getElementById("pkmn-list").style.border = "none";
+            });
+            list.appendChild(item);
+        });
+    });
+});
+
+document.getElementById("search-btn").addEventListener("click", function () {
+    let pkmn = document.getElementById("pkmn-name").value.toLowerCase();
+    pkmn = pkmn.charAt(0).toUpperCase() + pkmn.slice(1);
+    
+    for (const pkmn_id in pkmn_data) {
+        if (pkmn_data[pkmn_id].name.en === pkmn) {
+            id = pkmn_id;
+        }
+    }
+
+    gettingPokemon();
+    document.getElementById("btn-group-search").hidden = true;
+    document.getElementById("btn-group-search").style.display = "none";
+    document.getElementById("pkmn-name").innerHTML = "";
 });

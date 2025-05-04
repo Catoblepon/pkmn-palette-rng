@@ -14,13 +14,21 @@ Spoilers: it didn't take me only one weekend. But I did learn a bunch in the end
 
 # The code and it's future
 
-I, Catoblepon, made this website, using the [Color.js](https://github.com/luukdv/color.js) package made by [Luukdv](https://github.com/luukdv). I consider it finished and don't expect to change or expand it (unless there's some big bug that need addressing or Firefox implements a way to make it work).
+I, Catoblepon, made this website, using the [Color.js](https://github.com/luukdv/color.js) package made by [Luukdv](https://github.com/luukdv). I hope to, in a future, add a small funny feature that would be playing "Who's that pokemon" but with all the pixels of the sprite being randomized colour.
 
 The program is under the MIT License. Pokémon designs is propriety of [©2025 Pokémon](https://pokemon.com/), and the images have been obtained from [PokéSprite](https://msikma.github.io/pokesprite/index.html).
 
 # Change Log
 
-### Version 1.11 (Latest)
+### Version 1.2 (Latest)
+(04/05/2025)
+
+- ~~May the force be with you.~~
+- Fixed colours not changing.
+- Added a button to recover original sprite (without colour changes).
+- Added an option to pick a pokemon instead of a random one.
+
+### Version 1.11
 (19/3/2025)
 
 - Fixed buttons in firefox not working.

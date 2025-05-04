@@ -18,11 +18,20 @@
   <main>
     <h1 class="centered">Pkmn Palette RNG</h1>
     <div class="centered" id="introduction">
-      <p>Get a random pokemon and then give it a random new palette!</p>
+      <p>Get a random pokémon and then give it a random new palette!</p>
       <p>Up to Gen 7 only.</p>
     </div>
-    <div id="btn-group">
+    <div class="btn-group">
       <button class="btn" id="pkmn-btn" type="button">Get a Pokémon!</button>
+      <button class="btn" id="pick-btn" type="button">Pick a Pokémon!</button>
+    </div>
+    <div id="btn-group-search" hidden>
+      <input type="text" id="pkmn-name" placeholder="What pokémon you want?" />
+      <div id="pkmn-list"></div>
+      <button class="btn" id="search-btn" type="button">Search</button>
+    </div>
+    <div class="btn-group">
+      <button class="btn" id="origin-btn" type="button">Get original sprite</button>
       <button class="btn" id="colour-btn" type="button">Change its colours</button>
     </div>
     <div id="pkmn">
@@ -33,7 +42,7 @@
           <canvas id="pkmn-img" width="40" height="30" class="centeredY"></canvas>
         </div>  
         <p id="typing"></p>
-     </div>
+      </div>
       <div class="col-right"><p id="name-jp">ポケモン</p></div>
     </div>
   </main>
