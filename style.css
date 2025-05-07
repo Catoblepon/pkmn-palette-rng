@@ -119,7 +119,8 @@ p {
     scrollbar-width: thin;
 }
 
-#pkmn-list div:hover {
+#pkmn-list div:hover,
+#pkmn-list div.selected {
     background-color: var(--greyA);
     cursor: pointer;
 }

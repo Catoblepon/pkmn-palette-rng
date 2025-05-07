@@ -20,7 +20,12 @@ The program is under the MIT License. Pokémon designs is propriety of [©2025 P
 
 # Change Log
 
-### Version 1.2 (Latest)
+### Version 1.21 (Latest)
+- Improved the search for searching pokemons and the selection of them.
+    - Can press "Enter" to select the first Pokémon option.
+    - Pokémon with multiple sprites options have their "descriptive" added to them to differenciate each one.
+
+### Version 1.2
 (04/05/2025)
 
 - ~~May the force be with you.~~
